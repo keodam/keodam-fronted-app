@@ -25,6 +25,11 @@ class AppTextStyle {
     fontWeight: PretendardWeight.regular,
     fontSize: 14,
   );
+  static const bold12 = TextStyle(
+    fontFamily: 'Pretendard',
+    fontWeight: PretendardWeight.bold,
+    fontSize: 12,
+  );
 
   static const bold14 = TextStyle(
     fontFamily: 'Pretendard',
