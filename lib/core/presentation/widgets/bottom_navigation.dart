@@ -19,48 +19,53 @@ class BottomNavigationScaffold extends StatelessWidget {
       body: SafeArea(child: child),
       bottomNavigationBar: SizedBox(
         height: 95,
-        child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          currentIndex: _getIndex(location),
-          selectedItemColor: textBlue02,
-          unselectedItemColor: textGray,
-          selectedLabelStyle: AppTextStyle.bold12,
-          unselectedLabelStyle: AppTextStyle.bold12,
-
-          onTap: (index) {
-            switch (index) {
-              case 0:
-                context.go('/feed');
-                break;
-              case 1:
-                context.go('/explore');
-                break;
-              case 2:
-                context.go('/matching');
-                break;
-              case 3:
-                context.go('/mypage');
-                break;
-            }
-          },
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Keodam_footer.feed_icon_selected),
-              label: '피드',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Keodam_footer.explore_icon_selected),
-              label: '탐색',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Keodam_footer.matching_icon_default),
-              label: '매칭',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Keodam_footer.mypage_icon_default),
-              label: '마이',
-            ),
-          ],
+        child: Theme(
+          data: Theme.of(context).copyWith(
+            splashFactory: NoSplash.splashFactory,
+            highlightColor: Colors.transparent, // 터치 시 배경 효과 제거
+          ),
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            currentIndex: _getIndex(location),
+            selectedItemColor: textBlue02,
+            unselectedItemColor: textGray01,
+            selectedLabelStyle: AppTextStyle.bold12,
+            unselectedLabelStyle: AppTextStyle.bold12,
+            onTap: (index) {
+              switch (index) {
+                case 0:
+                  context.go('/feed');
+                  break;
+                case 1:
+                  context.go('/explore');
+                  break;
+                case 2:
+                  context.go('/matching');
+                  break;
+                case 3:
+                  context.go('/mypage');
+                  break;
+              }
+            },
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Keodam_footer.feed_icon_selected),
+                label: '피드',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Keodam_footer.explore_icon_selected),
+                label: '탐색',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Keodam_footer.matching_icon_default),
+                label: '매칭',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Keodam_footer.mypage_icon_default),
+                label: '마이',
+              ),
+            ],
+          ),
         ),
       ),
     );
