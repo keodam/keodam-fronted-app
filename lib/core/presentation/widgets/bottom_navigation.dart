@@ -22,7 +22,7 @@ class BottomNavigationScaffold extends StatelessWidget {
         child: Theme(
           data: Theme.of(context).copyWith(
             splashFactory: NoSplash.splashFactory,
-            highlightColor: Colors.transparent, // 터치 시 배경 효과 제거
+            highlightColor: Colors.transparent,
           ),
           child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
@@ -62,7 +62,7 @@ class BottomNavigationScaffold extends StatelessWidget {
               ),
               BottomNavigationBarItem(
                 icon: Icon(Keodam_footer.mypage_icon_default),
-                label: '마이',
+                label: '마이페이지',
               ),
             ],
           ),

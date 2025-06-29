@@ -11,6 +11,7 @@ const backgroundColor01 = Color(0xffF1F1F1);
 //text colors
 const textBlack = Color(0xff020202);
 const textGray = Color(0xff707070);
+const textGray01 = Color(0xffA9A9A9);
 const textBlue02 = Color(0xff3A75FF);
 
 //etc
