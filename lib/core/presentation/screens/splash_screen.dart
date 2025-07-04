@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keodam/core/router/routes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Future.delayed(const Duration(seconds: 2), () {
         if (mounted) {
-          context.go('/feed');
+          context.go(Routes.feed);
         }
       });
     });
@@ -29,12 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [
-            Image(
-              image: AssetImage('assets/images/splash_logo.png'),
-              width: 240,
-            ),
-          ],
+          children: [Image(image: AssetImage('assets/images/splash_logo.png'), width: 240)],
         ),
       ),
     );
