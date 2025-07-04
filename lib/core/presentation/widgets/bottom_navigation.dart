@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keodam/core/router/routes.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/keodam_footer_icons.dart';
-import 'package:keodam/core/theme/pretendard_weight.dart';
 import 'package:keodam/core/theme/text_styles.dart';
 
 class BottomNavigationScaffold extends StatelessWidget {
@@ -20,10 +20,7 @@ class BottomNavigationScaffold extends StatelessWidget {
       bottomNavigationBar: SizedBox(
         height: 95,
         child: Theme(
-          data: Theme.of(context).copyWith(
-            splashFactory: NoSplash.splashFactory,
-            highlightColor: Colors.transparent,
-          ),
+          data: Theme.of(context).copyWith(splashFactory: NoSplash.splashFactory, highlightColor: Colors.transparent),
           child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             currentIndex: _getIndex(location),
@@ -34,36 +31,24 @@ class BottomNavigationScaffold extends StatelessWidget {
             onTap: (index) {
               switch (index) {
                 case 0:
-                  context.go('/feed');
+                  context.go(Routes.feed);
                   break;
                 case 1:
-                  context.go('/explore');
+                  context.go(Routes.explore);
                   break;
                 case 2:
-                  context.go('/matching');
+                  context.go(Routes.matching);
                   break;
                 case 3:
-                  context.go('/mypage');
+                  context.go(Routes.mypage);
                   break;
               }
             },
             items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Keodam_footer.feed_icon_selected),
-                label: '피드',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Keodam_footer.explore_icon_selected),
-                label: '탐색',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Keodam_footer.matching_icon_default),
-                label: '매칭',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Keodam_footer.mypage_icon_default),
-                label: '마이페이지',
-              ),
+              BottomNavigationBarItem(icon: Icon(Keodam_footer.feed_icon_selected), label: '피드'),
+              BottomNavigationBarItem(icon: Icon(Keodam_footer.explore_icon_selected), label: '탐색'),
+              BottomNavigationBarItem(icon: Icon(Keodam_footer.matching_icon_default), label: '매칭'),
+              BottomNavigationBarItem(icon: Icon(Keodam_footer.mypage_icon_default), label: '마이페이지'),
             ],
           ),
         ),
@@ -72,9 +57,9 @@ class BottomNavigationScaffold extends StatelessWidget {
   }
 
   int _getIndex(String location) {
-    if (location.startsWith('/explore')) return 1;
-    if (location.startsWith('/matching')) return 2;
-    if (location.startsWith('/mypage')) return 3;
+    if (location.startsWith(Routes.explore)) return 1;
+    if (location.startsWith(Routes.matching)) return 2;
+    if (location.startsWith(Routes.mypage)) return 3;
     return 0;
   }
 }
