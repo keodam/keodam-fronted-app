@@ -17,3 +17,13 @@ const textBlue02 = Color(0xff3A75FF);
 //etc
 const pureWhite = Color(0xffFFFFFF);
 const redColor = Color(0xffFF2B00);
+const backGray = Color(0xffEDEFF1);
+
+//mento-progress colors
+const mentoProgressColor00 = Color(0xffE5E9F0);
+const mentoProgressColor01 = Color(0xffD2EEFF);
+const mentoProgressColor02 = Color(0xffE4CCFF);
+const mentoProgressColor03 = Color(0xffFFD4EB);
+const mentoProgressColor04 = Color(0xffFFD0CF);
+const mentoProgressColor05 = Color(0xffFDCE7E);
+const mentoProgressColor06 = Color(0xffFFEEB6);
