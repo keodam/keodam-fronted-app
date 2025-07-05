@@ -25,3 +25,7 @@
 - Chore : 빌드 작업
 - Refactor : 파일 및 코드 리팩토링 (기능 변경사항 없음)
 - Docs : 문서 수정 이거 바탕으로 생성해줘
+
+### 빌드
+- `dart run build_runner watch -d`
+- flutter_gen: 빌드 후 `Assets.icons.clock`처럼 사용. `import 'package:keodam/gen/assets.gen.dart';`
