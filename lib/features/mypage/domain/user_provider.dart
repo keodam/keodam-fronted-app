@@ -12,5 +12,8 @@ final userProvider = StateProvider<UserState>((ref) {
     phoneNumber: '010-1234-5678',
     profileImageUrl: 'https://example.com/profile_image.png',
     currentExp: 8400,
+    currentDegree: 35,
+    appVersion: 'v1.0.0',
+    uniqueId: '#p12345',
   );
 });
