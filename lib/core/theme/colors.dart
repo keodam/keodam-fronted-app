@@ -28,5 +28,14 @@ const mentoProgressColor04 = Color(0xffFFD0CF);
 const mentoProgressColor05 = Color(0xffFDCE7E);
 const mentoProgressColor06 = Color(0xffFFEEB6);
 
+//mentee-progress colors
+const menteeProgressColor00 = Color(0xff529DFF);
+const menteeProgressColor01 = Color(0xffD67DF9);
+const menteeProgressColor02 = Color(0xffFF00AA);
+const menteeProgressColor03 = Color(0xffFF604E);
+const menteeProgressColor04 = Color(0xffFF8356);
+const menteeProgressColor05 = Color(0xffFFB957);
+const menteeProgressColor06 = Color(0xffFFF457);
+
 //indicator color
 const indicatorBackground = Color(0xffE7E7E7);
