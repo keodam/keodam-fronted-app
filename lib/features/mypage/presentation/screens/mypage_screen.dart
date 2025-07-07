@@ -1,54 +1,43 @@
 import 'package:flutter/material.dart';
+
 import 'package:keodam/core/theme/colors.dart';
-import 'package:keodam/features/mypage/domain/user_provider.dart';
-import 'package:keodam/features/mypage/presentation/widgets/matching_info_item.dart';
-import 'package:keodam/features/mypage/presentation/widgets/mento_level_card.dart';
+import 'package:keodam/features/mypage/presentation/screens/logout_section.dart';
+import 'package:keodam/features/mypage/presentation/widgets/events_section.dart';
+
+import 'package:keodam/features/mypage/presentation/widgets/logout_button.dart';
 import 'package:keodam/features/mypage/presentation/widgets/mentor_toggle_card.dart';
-import 'package:keodam/features/mypage/presentation/widgets/user_profile_tile.dart';
-import 'package:keodam/features/mypage/presentation/widgets/shop_header.dart';
+import 'package:keodam/features/mypage/presentation/widgets/notificiation_section.dart';
+import 'package:keodam/features/mypage/presentation/widgets/profile_edit_section.dart';
+import 'package:keodam/features/mypage/presentation/widgets/profile_state_section.dart';
+import 'package:keodam/features/mypage/presentation/widgets/section_divider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:keodam/features/mypage/presentation/widgets/user_support_section.dart';
 
 class MypageScreen extends ConsumerWidget {
   const MypageScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final user = ref.watch(userProvider);
-
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            const SizedBox(height: 33),
-            const RoleToggleCard(),
-            Container(height: 32, color: backGray),
-            Container(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                children: [
-                  ShopHeader(
-                    beanAmount: user.beanAmount,
-                    ticketAmount: user.ticketAmount,
-                  ),
-                  const SizedBox(height: 19),
-                  MatchingInfoItem(
-                    coffeeChatCount: user.coffeeChatCount,
-                    receivedLikes: user.receivedLikes,
-                  ),
-                  const SizedBox(height: 33),
-                  MentoLevelCard(currentExp: user.currentExp),
-                  const SizedBox(height: 25),
-                  UserInfoCard(
-                    nickname: user.nickname,
-                    email: user.email,
-                    phoneNumber: user.phoneNumber,
-                    profileImageUrl: user.profileImageUrl,
-                  ),
-                ],
-              ),
-            ),
-            Container(height: 12, color: backGray),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 33),
+              RoleToggleCard(),
+              SectionDivider(height: 32),
+              ProfileStateSection(),
+              SectionDivider(height: 12),
+              ProfileEditSection(),
+              SectionDivider(height: 12),
+              NotificiationSection(),
+              SectionDivider(height: 12),
+              EventsSection(),
+              SectionDivider(height: 12),
+              UserSupportSection(),
+              LogoutSection(),
+            ],
+          ),
         ),
       ),
     );

@@ -1,8 +1,7 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:ui';
 import 'package:keodam/core/theme/colors.dart';
 
-class LevelInfo {
+class MentoLevelInfo {
   final int level;
   final String title;
   final int minExp;
@@ -10,7 +9,7 @@ class LevelInfo {
   final Color color;
   final String image;
 
-  const LevelInfo({
+  const MentoLevelInfo({
     required this.level,
     required this.title,
     required this.minExp,
@@ -24,8 +23,8 @@ class LevelInfo {
   }
 }
 
-const List<LevelInfo> levelTable = [
-  LevelInfo(
+const List<MentoLevelInfo> levelTable = [
+  MentoLevelInfo(
     level: 0,
     title: '초심자',
     minExp: 0,
@@ -33,7 +32,7 @@ const List<LevelInfo> levelTable = [
     color: mentoProgressColor00,
     image: 'assets/images/mypage/mento_level_0.png',
   ),
-  LevelInfo(
+  MentoLevelInfo(
     level: 1,
     title: '학습자',
     minExp: 500,
@@ -41,7 +40,7 @@ const List<LevelInfo> levelTable = [
     color: mentoProgressColor01,
     image: 'assets/images/mypage/mento_level_1.png',
   ),
-  LevelInfo(
+  MentoLevelInfo(
     level: 2,
     title: '실행자',
     minExp: 1300,
@@ -49,7 +48,7 @@ const List<LevelInfo> levelTable = [
     color: mentoProgressColor02,
     image: 'assets/images/mypage/mento_level_2.png',
   ),
-  LevelInfo(
+  MentoLevelInfo(
     level: 3,
     title: '전문가',
     minExp: 2500,
@@ -57,7 +56,7 @@ const List<LevelInfo> levelTable = [
     color: mentoProgressColor03,
     image: 'assets/images/mypage/mento_level_3.png',
   ),
-  LevelInfo(
+  MentoLevelInfo(
     level: 4,
     title: '조언자',
     minExp: 4000,
@@ -65,7 +64,7 @@ const List<LevelInfo> levelTable = [
     color: mentoProgressColor04,
     image: 'assets/images/mypage/mento_level_4.png',
   ),
-  LevelInfo(
+  MentoLevelInfo(
     level: 5,
     title: '리더',
     minExp: 6000,
@@ -73,7 +72,7 @@ const List<LevelInfo> levelTable = [
     color: mentoProgressColor05,
     image: 'assets/images/mypage/mento_level_5.png',
   ),
-  LevelInfo(
+  MentoLevelInfo(
     level: 6,
     title: '레전드',
     minExp: 8200,
@@ -83,7 +82,7 @@ const List<LevelInfo> levelTable = [
   ),
 ];
 
-LevelInfo getLevelInfo(int exp) {
+MentoLevelInfo getLevelInfo(int exp) {
   return levelTable.firstWhere(
     (level) => level.containsExp(exp),
     orElse: () => levelTable.last,
