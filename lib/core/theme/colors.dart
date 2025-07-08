@@ -17,3 +17,6 @@ const textBlue02 = Color(0xff3A75FF);
 //etc
 const pureWhite = Color(0xffFFFFFF);
 const redColor = Color(0xffFF2B00);
+
+//indicator color
+const indicatorBackground = Color(0xffE7E7E7);
