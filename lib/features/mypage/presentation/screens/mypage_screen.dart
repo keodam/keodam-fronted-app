@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:keodam/core/theme/colors.dart';
-import 'package:keodam/features/mypage/presentation/screens/logout_section.dart';
+import 'package:keodam/features/mypage/presentation/widgets/logout_section.dart';
 import 'package:keodam/features/mypage/presentation/widgets/events_section.dart';
 
-import 'package:keodam/features/mypage/presentation/widgets/logout_button.dart';
 import 'package:keodam/features/mypage/presentation/widgets/mentor_toggle_card.dart';
 import 'package:keodam/features/mypage/presentation/widgets/notificiation_section.dart';
 import 'package:keodam/features/mypage/presentation/widgets/profile_edit_section.dart';

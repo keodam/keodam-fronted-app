@@ -16,7 +16,6 @@ class MenteeDegreeCard extends StatelessWidget {
     final int currentIndex = levelTable.indexOf(levelInfo);
     final int maxIndex = levelTable.length - 1;
 
-    // 전체 퍼센트 계산 (단계 진행도)
     final double percent = (currentIndex + 1) / (maxIndex + 1);
 
     return Row(
