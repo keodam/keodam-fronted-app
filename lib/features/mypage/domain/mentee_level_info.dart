@@ -71,7 +71,7 @@ const List<MenteeLevelInfo> levelTable = [
   ),
 ];
 
-MenteeLevelInfo getLevelInfo(int degree) {
+MenteeLevelInfo getMenteeLevelInfo(int degree) {
   return levelTable.firstWhere(
     (level) => degree >= level.minDegree && degree < level.maxDegree,
     orElse: () => levelTable.last,

@@ -82,7 +82,7 @@ const List<MentoLevelInfo> levelTable = [
   ),
 ];
 
-MentoLevelInfo getLevelInfo(int exp) {
+MentoLevelInfo getMentoLevelInfo(int exp) {
   return levelTable.firstWhere(
     (level) => level.containsExp(exp),
     orElse: () => levelTable.last,
