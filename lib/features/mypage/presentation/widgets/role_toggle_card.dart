@@ -10,7 +10,7 @@ class RoleToggleCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final role = ref.watch(userRoleProvider); // enum Role
+    final role = ref.watch(userRoleProvider);
     final roleNotifier = ref.read(userRoleProvider.notifier);
 
     final isMentee = role == Role.mentee;
