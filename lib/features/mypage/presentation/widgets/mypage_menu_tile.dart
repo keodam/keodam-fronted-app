@@ -22,10 +22,10 @@ class MypageMenuTile extends ConsumerWidget {
   get backgroundColor02 => null;
 
   void _handleTap(BuildContext context, WidgetRef ref) {
-    final isMentee = ref.read(isMenteeProvider);
+    final isMentee = ref.read(userRoleProvider);
 
     if (title == MypageMenuTitle.roulette) {
-      if (isMentee) {
+      if (ref.read(userRoleProvider) == Role.mentee) {
         showDialog(
           context: context,
           builder: (BuildContext context) {

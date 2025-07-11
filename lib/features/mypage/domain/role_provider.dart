@@ -1,11 +1,15 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod/riverpod.dart';
 
-class RoleNotifier extends StateNotifier<bool> {
-  RoleNotifier() : super(false); // true: 멘티, false: 멘토
+enum Role { mentee, mentor }
 
-  void toggle() => state = !state;
+class RoleNotifier extends StateNotifier<Role> {
+  RoleNotifier() : super(Role.mentee);
+
+  void toggle() {
+    state = state == Role.mentee ? Role.mentor : Role.mentee;
+  }
 }
 
-final isMenteeProvider = StateNotifierProvider<RoleNotifier, bool>(
+final userRoleProvider = StateNotifierProvider<RoleNotifier, Role>(
   (ref) => RoleNotifier(),
 );

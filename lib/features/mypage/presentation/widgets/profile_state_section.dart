@@ -13,7 +13,7 @@ class ProfileStateSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isMentor = ref.watch(isMenteeProvider);
+    final role = ref.watch(userRoleProvider);
 
     return Padding(
       padding: const EdgeInsets.all(16),
@@ -23,7 +23,7 @@ class ProfileStateSection extends ConsumerWidget {
           const SizedBox(height: 19),
           MatchingInfoItem(),
           const SizedBox(height: 33),
-          isMentor ? MentoLevelCard() : MenteeDegreeCard(),
+          role == Role.mentor ? MentoLevelCard() : MenteeDegreeCard(),
           const SizedBox(height: 25),
           const UserInfoCard(),
         ],
