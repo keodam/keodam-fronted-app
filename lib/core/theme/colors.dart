@@ -36,3 +36,6 @@ const menteeProgressColor03 = Color(0xffFF604E);
 const menteeProgressColor04 = Color(0xffFF8356);
 const menteeProgressColor05 = Color(0xffFFB957);
 const menteeProgressColor06 = Color(0xffFFF457);
+
+//indicator color
+const indicatorBackground = Color(0xffE7E7E7);
