@@ -4,18 +4,19 @@ import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
 import 'package:keodam/features/mypage/domain/mentee_level_info.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:keodam/features/mypage/domain/user_provider.dart';
 
-class MenteeDegreeCard extends StatelessWidget {
-  final int currentDegree;
-
-  const MenteeDegreeCard({super.key, required this.currentDegree});
+class MenteeDegreeCard extends ConsumerWidget {
+  const MenteeDegreeCard({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final levelInfo = getLevelInfo(currentDegree);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final currentDegree = ref.watch(userProvider).currentDegree;
+    final levelInfo = getMenteeLevelInfo(currentDegree);
+
     final int currentIndex = levelTable.indexOf(levelInfo);
     final int maxIndex = levelTable.length - 1;
-
     final double percent = (currentIndex + 1) / (maxIndex + 1);
 
     return Row(

@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:keodam/core/theme/text_styles.dart';
 import 'package:keodam/core/theme/colors.dart';
+import 'package:keodam/features/mypage/domain/user_provider.dart';
 
-class ShopHeader extends StatelessWidget {
-  final int beanAmount;
-  final int ticketAmount;
-
-  const ShopHeader({
-    super.key,
-    required this.beanAmount,
-    required this.ticketAmount,
-  });
+class ShopHeader extends ConsumerWidget {
+  const ShopHeader({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.watch(userProvider);
+
     return Container(
       height: 51,
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -43,7 +40,7 @@ class ShopHeader extends StatelessWidget {
                     width: 24,
                   ),
                   const SizedBox(width: 5),
-                  Text('$beanAmount', style: AppTextStyle.regular14),
+                  Text('${user.beanAmount}', style: AppTextStyle.regular14),
                 ],
               ),
               const SizedBox(width: 16),
@@ -54,7 +51,7 @@ class ShopHeader extends StatelessWidget {
                     width: 24,
                   ),
                   const SizedBox(width: 5),
-                  Text('$ticketAmount', style: AppTextStyle.regular14),
+                  Text('${user.ticketAmount}', style: AppTextStyle.regular14),
                 ],
               ),
             ],

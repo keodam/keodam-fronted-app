@@ -1,24 +1,17 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
+import 'package:keodam/features/mypage/domain/user_provider.dart';
 
-class UserInfoCard extends StatelessWidget {
-  final String nickname;
-  final String email;
-  final String phoneNumber;
-  final String profileImageUrl;
-  const UserInfoCard({
-    super.key,
-    required this.nickname,
-    required this.email,
-    required this.phoneNumber,
-    required this.profileImageUrl,
-  });
+class UserInfoCard extends ConsumerWidget {
+  const UserInfoCard({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.watch(userProvider);
+
     return Container(
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -32,14 +25,17 @@ class UserInfoCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                nickname,
+                user.nickname,
                 style: AppTextStyle.bold20.copyWith(color: textBlack),
               ),
               SizedBox(height: 4),
-              Text(email, style: AppTextStyle.bold14.copyWith(color: textGray)),
+              Text(
+                user.email,
+                style: AppTextStyle.bold14.copyWith(color: textGray),
+              ),
               SizedBox(height: 5),
               Text(
-                phoneNumber,
+                user.phoneNumber,
                 style: AppTextStyle.bold14.copyWith(color: textGray),
               ),
             ],

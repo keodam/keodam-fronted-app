@@ -11,7 +11,7 @@ class RoleToggleCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isMentee = ref.watch(isMenteeProvider);
-    final isMentorNotifier = ref.read(isMenteeProvider.notifier);
+    final roleNotifier = ref.read(isMenteeProvider.notifier);
 
     return Container(
       color: const Color(0xffADD7FD),
@@ -42,7 +42,7 @@ class RoleToggleCard extends ConsumerWidget {
                 padding: 2,
                 toggleSize: 30,
                 value: isMentee,
-                onToggle: (val) => isMentorNotifier.state = val,
+                onToggle: (val) => roleNotifier.toggle(),
                 activeColor: Colors.transparent.withOpacity(0.16),
                 inactiveColor: Colors.transparent.withOpacity(0.16),
                 toggleColor: pureWhite,

@@ -1,25 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:keodam/core/theme/text_styles.dart';
 import 'package:keodam/core/theme/colors.dart';
+import 'package:keodam/features/mypage/domain/user_provider.dart';
 
-class MatchingInfoItem extends StatelessWidget {
-  final int coffeeChatCount;
-  final int receivedLikes;
-
-  const MatchingInfoItem({
-    super.key,
-    required this.coffeeChatCount,
-    required this.receivedLikes,
-  });
+class MatchingInfoItem extends ConsumerWidget {
+  const MatchingInfoItem({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.watch(userProvider);
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        _StatItem(value: coffeeChatCount.toString(), label: '커피챗 매칭 횟수'),
+        _StatItem(value: user.coffeeChatCount.toString(), label: '커피챗 매칭 횟수'),
         Container(height: 45, width: 2, color: backgroundColor01),
-        _StatItem(value: receivedLikes.toString(), label: '받은 프로필 좋아요'),
+        _StatItem(value: user.receivedLikes.toString(), label: '받은 프로필 좋아요'),
       ],
     );
   }
