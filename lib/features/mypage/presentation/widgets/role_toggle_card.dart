@@ -43,8 +43,8 @@ class RoleToggleCard extends ConsumerWidget {
                 toggleSize: 30,
                 value: isMentee,
                 onToggle: (val) => roleNotifier.toggle(),
-                activeColor: Colors.transparent.withOpacity(0.16),
-                inactiveColor: Colors.transparent.withOpacity(0.16),
+                activeColor: const Color.fromRGBO(255, 255, 255, 0.16),
+                inactiveColor: const Color.fromRGBO(255, 255, 255, 0.16),
                 toggleColor: pureWhite,
                 showOnOff: false,
                 activeIcon: Image.asset(

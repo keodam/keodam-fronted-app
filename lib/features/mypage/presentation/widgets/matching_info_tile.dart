@@ -14,7 +14,7 @@ class MatchingInfoItem extends ConsumerWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        _StatItem(value: user.coffeeChatCount.toString(), label: '커피챗 매칭 횟수'),
+        _StatItem(value: user.matches.toString(), label: '커피챗 매칭 횟수'),
         Container(height: 45, width: 2, color: backgroundColor01),
         _StatItem(value: user.receivedLikes.toString(), label: '받은 프로필 좋아요'),
       ],

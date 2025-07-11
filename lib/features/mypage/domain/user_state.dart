@@ -1,30 +1,25 @@
-class UserState {
-  final int beanAmount;
-  final int ticketAmount;
-  final int coffeeChatCount;
-  final int receivedLikes;
-  final String nickname;
-  final String email;
-  final String phoneNumber;
-  final String profileImageUrl;
-  final int currentExp;
-  final int currentDegree;
-  final String appVersion;
-  final String uniqueId;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  UserState({
-    int? currentExp,
-    int? currentDegree,
-    required this.beanAmount,
-    required this.ticketAmount,
-    required this.coffeeChatCount,
-    required this.receivedLikes,
-    required this.nickname,
-    required this.email,
-    required this.phoneNumber,
-    required this.profileImageUrl,
-    required this.appVersion,
-    required this.uniqueId,
-  }) : currentExp = currentExp ?? 0,
-       currentDegree = currentDegree ?? 35;
+part 'user_state.freezed.dart';
+// part 'user_state.g.dart'; // json serialization 필요시
+
+@freezed
+abstract class UserState with _$UserState {
+  const factory UserState({
+    required int coffeeCoupon,
+    required int rouletteCoupon,
+    required int matches,
+    required int receivedLikes,
+    required String nickname,
+    required String email,
+    required String phoneNumber,
+    required String profileImageUrl,
+    @Default(0) int currentExp,
+    @Default(35) int currentDegree,
+    @Default('v1.0.0') String appVersion,
+    @Default('#p12345') String uniqueId,
+  }) = _UserState;
+
+  // factory UserState.fromJson(Map<String, dynamic> json) =>
+  //     _$UserStateFromJson(json);
 }
