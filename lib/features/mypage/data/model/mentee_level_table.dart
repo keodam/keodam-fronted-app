@@ -1,23 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:ui';
-
+import 'package:keodam/features/mypage/data/model/mentee_level.dart';
 import 'package:keodam/core/theme/colors.dart';
-
-class MenteeLevelInfo {
-  final int level;
-  final Color color;
-  final int minDegree;
-  final int maxDegree;
-  final String image;
-
-  const MenteeLevelInfo({
-    required this.level,
-    required this.color,
-    required this.minDegree,
-    required this.maxDegree,
-    required this.image,
-  });
-}
 
 const List<MenteeLevelInfo> levelTable = [
   MenteeLevelInfo(
@@ -70,10 +52,3 @@ const List<MenteeLevelInfo> levelTable = [
     image: 'assets/images/mypage/mentee_level_6.png',
   ),
 ];
-
-MenteeLevelInfo getMenteeLevelInfo(int degree) {
-  return levelTable.firstWhere(
-    (level) => degree >= level.minDegree && degree < level.maxDegree,
-    orElse: () => levelTable.last,
-  );
-}
