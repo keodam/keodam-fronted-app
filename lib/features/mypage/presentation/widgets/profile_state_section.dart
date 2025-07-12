@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:keodam/features/mypage/domain/role_provider.dart';
+import 'package:keodam/features/mypage/provider/role_provider.dart';
 import 'package:keodam/features/mypage/presentation/widgets/matching_info_tile.dart';
 import 'package:keodam/features/mypage/presentation/widgets/mentee_degree_card.dart';
 import 'package:keodam/features/mypage/presentation/widgets/mento_level_card.dart'

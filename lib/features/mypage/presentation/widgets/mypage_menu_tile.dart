@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
 import 'package:keodam/features/mypage/domain/mypage_menu_title.dart';
-import 'package:keodam/features/mypage/domain/role_provider.dart';
+import 'package:keodam/features/mypage/provider/role_provider.dart';
 
 class MypageMenuTile extends ConsumerWidget {
   final MypageMenuTitle title;

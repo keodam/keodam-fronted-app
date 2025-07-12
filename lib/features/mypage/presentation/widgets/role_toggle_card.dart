@@ -3,7 +3,7 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
-import 'package:keodam/features/mypage/domain/role_provider.dart';
+import 'package:keodam/features/mypage/provider/role_provider.dart';
 
 class RoleToggleCard extends ConsumerWidget {
   const RoleToggleCard({super.key});

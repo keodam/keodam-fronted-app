@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
-import 'package:keodam/features/mypage/domain/mento_level_info.dart';
-import 'package:keodam/features/mypage/domain/user_provider.dart';
+import 'package:keodam/features/mypage/provider/user_provider.dart';
+import 'package:keodam/features/mypage/data/util/get_mento_level.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class MentoLevelCard extends ConsumerWidget {

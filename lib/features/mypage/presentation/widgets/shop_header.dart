@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:keodam/core/theme/text_styles.dart';
 import 'package:keodam/core/theme/colors.dart';
-import 'package:keodam/features/mypage/domain/user_provider.dart';
+import 'package:keodam/features/mypage/provider/user_provider.dart';
 
 class ShopHeader extends ConsumerWidget {
   const ShopHeader({super.key});
