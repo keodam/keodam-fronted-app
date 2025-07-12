@@ -3,15 +3,17 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
-import 'package:keodam/features/mypage/domain/role_provider.dart';
+import 'package:keodam/features/mypage/provider/role_provider.dart';
 
 class RoleToggleCard extends ConsumerWidget {
   const RoleToggleCard({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isMentee = ref.watch(isMenteeProvider);
-    final isMentorNotifier = ref.read(isMenteeProvider.notifier);
+    final role = ref.watch(userRoleProvider);
+    final roleNotifier = ref.read(userRoleProvider.notifier);
+
+    final isMentee = role == Role.mentee;
 
     return Container(
       color: const Color(0xffADD7FD),
@@ -42,9 +44,9 @@ class RoleToggleCard extends ConsumerWidget {
                 padding: 2,
                 toggleSize: 30,
                 value: isMentee,
-                onToggle: (val) => isMentorNotifier.state = val,
-                activeColor: Colors.transparent.withOpacity(0.16),
-                inactiveColor: Colors.transparent.withOpacity(0.16),
+                onToggle: (val) => roleNotifier.toggle(),
+                activeColor: const Color.fromRGBO(255, 255, 255, 0.16),
+                inactiveColor: const Color.fromRGBO(255, 255, 255, 0.16),
                 toggleColor: pureWhite,
                 showOnOff: false,
                 activeIcon: Image.asset(

@@ -1,27 +1,5 @@
-import 'dart:ui';
 import 'package:keodam/core/theme/colors.dart';
-
-class MentoLevelInfo {
-  final int level;
-  final String title;
-  final int minExp;
-  final int maxExp;
-  final Color color;
-  final String image;
-
-  const MentoLevelInfo({
-    required this.level,
-    required this.title,
-    required this.minExp,
-    required this.maxExp,
-    required this.color,
-    required this.image,
-  });
-
-  bool containsExp(int exp) {
-    return exp >= minExp && exp < maxExp;
-  }
-}
+import 'package:keodam/features/mypage/data/model/mento_level.dart';
 
 const List<MentoLevelInfo> levelTable = [
   MentoLevelInfo(
@@ -81,10 +59,3 @@ const List<MentoLevelInfo> levelTable = [
     image: 'assets/images/mypage/mento_level_6.png',
   ),
 ];
-
-MentoLevelInfo getLevelInfo(int exp) {
-  return levelTable.firstWhere(
-    (level) => level.containsExp(exp),
-    orElse: () => levelTable.last,
-  );
-}
