@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'user_state.dart';
+import '../data/model/user_state.dart';
 
 final userProvider = StateProvider<UserState>((ref) {
   final int degree = 5;
