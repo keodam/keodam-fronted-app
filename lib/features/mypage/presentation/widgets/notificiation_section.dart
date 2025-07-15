@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
-import 'package:keodam/features/mypage/domain/notification_provider.dart';
+import 'package:keodam/features/mypage/provider/notification_provider.dart';
 import 'package:keodam/features/mypage/presentation/widgets/notification_toggle_tile.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

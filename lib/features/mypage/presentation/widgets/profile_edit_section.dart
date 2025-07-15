@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
+import 'package:keodam/features/mypage/domain/mypage_menu_title.dart';
 import 'package:keodam/features/mypage/presentation/widgets/mypage_menu_tile.dart';
 
 class ProfileEditSection extends StatelessWidget {
@@ -16,7 +17,7 @@ class ProfileEditSection extends StatelessWidget {
           Text('프로필 관리', style: AppTextStyle.bold18),
           const SizedBox(height: 16),
           MypageMenuTile(
-            title: '멘토 프로필 수정',
+            title: MypageMenuTitle.editMentorProfile,
             iconAssetPath: 'assets/images/mypage/icon_mentor.png',
             onTap: () {
               Navigator.pushNamed(context, '/edit');
@@ -24,7 +25,7 @@ class ProfileEditSection extends StatelessWidget {
           ),
           Divider(height: 1, color: backgroundColor01),
           MypageMenuTile(
-            title: '멘티 프로필 수정',
+            title: MypageMenuTitle.editMenteeProfile,
             iconAssetPath: 'assets/images/mypage/icon_mentee.png',
             onTap: () {
               Navigator.pushNamed(context, '/edit');
@@ -32,7 +33,7 @@ class ProfileEditSection extends StatelessWidget {
           ),
           Divider(height: 1, color: backgroundColor01),
           MypageMenuTile(
-            title: '재학 및 졸업, 현직자 인증',
+            title: MypageMenuTitle.certifyStatus,
             iconAssetPath: 'assets/images/mypage/icon_certified_badge.png',
             onTap: () {
               Navigator.pushNamed(context, '/edit');
