@@ -10,6 +10,17 @@ class BottomNavigationScaffold extends StatelessWidget {
 
   const BottomNavigationScaffold({super.key, required this.child});
 
+  static const Set<String> _bottomNavLocations = {
+    '/feed',
+    '/explore',
+    '/matching',
+    '/mypage',
+  };
+
+  bool _showBottomNav(String location) {
+    return _bottomNavLocations.contains(location);
+  }
+
   @override
   Widget build(BuildContext context) {
     final location = GoRouterState.of(context).uri.toString();
@@ -17,42 +28,60 @@ class BottomNavigationScaffold extends StatelessWidget {
     return Scaffold(
       backgroundColor: pureWhite,
       body: SafeArea(child: child),
-      bottomNavigationBar: SizedBox(
-        height: 95,
-        child: Theme(
-          data: Theme.of(context).copyWith(splashFactory: NoSplash.splashFactory, highlightColor: Colors.transparent),
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            currentIndex: _getIndex(location),
-            selectedItemColor: textBlue02,
-            unselectedItemColor: textGray01,
-            selectedLabelStyle: AppTextStyle.bold12,
-            unselectedLabelStyle: AppTextStyle.bold12,
-            onTap: (index) {
-              switch (index) {
-                case 0:
-                  context.go(Routes.feed);
-                  break;
-                case 1:
-                  context.go(Routes.explore);
-                  break;
-                case 2:
-                  context.go(Routes.matching);
-                  break;
-                case 3:
-                  context.go(Routes.mypage);
-                  break;
-              }
-            },
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Keodam_footer.feed_icon_selected), label: '피드'),
-              BottomNavigationBarItem(icon: Icon(Keodam_footer.explore_icon_selected), label: '탐색'),
-              BottomNavigationBarItem(icon: Icon(Keodam_footer.matching_icon_default), label: '매칭'),
-              BottomNavigationBarItem(icon: Icon(Keodam_footer.mypage_icon_default), label: '마이페이지'),
-            ],
-          ),
-        ),
-      ),
+      bottomNavigationBar:
+          _showBottomNav(location)
+              ? SizedBox(
+                height: 95,
+                child: Theme(
+                  data: Theme.of(context).copyWith(
+                    splashFactory: NoSplash.splashFactory,
+                    highlightColor: Colors.transparent,
+                  ),
+                  child: BottomNavigationBar(
+                    type: BottomNavigationBarType.fixed,
+                    currentIndex: _getIndex(location),
+                    selectedItemColor: textBlue02,
+                    unselectedItemColor: textGray01,
+                    selectedLabelStyle: AppTextStyle.bold12,
+                    unselectedLabelStyle: AppTextStyle.bold12,
+                    onTap: (index) {
+                      switch (index) {
+                        case 0:
+                          context.go(Routes.feed);
+                          break;
+                        case 1:
+                          context.go(Routes.explore);
+                          break;
+                        case 2:
+                          context.go(Routes.matching);
+                          break;
+                        case 3:
+                          context.go(Routes.mypage);
+                          break;
+                      }
+                    },
+                    items: const [
+                      BottomNavigationBarItem(
+                        icon: Icon(Keodam_footer.feed_icon_selected),
+                        label: '피드',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Keodam_footer.explore_icon_selected),
+                        label: '탐색',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Keodam_footer.matching_icon_default),
+                        label: '매칭',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Keodam_footer.mypage_icon_default),
+                        label: '마이페이지',
+                      ),
+                    ],
+                  ),
+                ),
+              )
+              : null,
     );
   }
 
