@@ -6,21 +6,27 @@ import 'package:keodam/features/feed/presentation/screens/feed_screen.dart';
 import 'package:keodam/features/matching/presentation/screens/matching_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/mypage_screen.dart';
 import 'package:keodam/core/presentation/widgets/bottom_navigation.dart'; // 이름 바꿔도 OK
+import 'package:keodam/features/mypage/presentation/screens/mento_level_guide.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: Routes.splash,
   routes: [
-    GoRoute(path: Routes.splash, builder: (context, state) => const SplashScreen()),
+    GoRoute(
+      path: Routes.splash,
+      builder: (context, state) => const SplashScreen(),
+    ),
 
     ShellRoute(
-      builder: (context, state, child) => BottomNavigationScaffold(child: child),
+      builder:
+          (context, state, child) => BottomNavigationScaffold(child: child),
       routes: [
         GoRoute(
           path: Routes.feed,
           pageBuilder:
               (context, state) => CustomTransitionPage(
                 child: FeedScreen(),
-                transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) => child,
                 transitionDuration: Duration.zero,
               ),
         ),
@@ -29,7 +35,8 @@ final GoRouter router = GoRouter(
           pageBuilder:
               (context, state) => CustomTransitionPage(
                 child: ExploreScreen(),
-                transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) => child,
                 transitionDuration: Duration.zero,
               ),
         ),
@@ -38,7 +45,8 @@ final GoRouter router = GoRouter(
           pageBuilder:
               (context, state) => CustomTransitionPage(
                 child: MatchingScreen(),
-                transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) => child,
                 transitionDuration: Duration.zero,
               ),
         ),
@@ -47,9 +55,23 @@ final GoRouter router = GoRouter(
           pageBuilder:
               (context, state) => CustomTransitionPage(
                 child: MypageScreen(),
-                transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) => child,
                 transitionDuration: Duration.zero,
               ),
+          routes: [
+            GoRoute(
+              path: Routes.mypageMentorLevelGuide,
+              pageBuilder:
+                  (context, state) => CustomTransitionPage(
+                    child: MentoLevelGuide(),
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) =>
+                            child,
+                    transitionDuration: Duration.zero,
+                  ),
+            ),
+          ],
         ),
       ],
     ),
