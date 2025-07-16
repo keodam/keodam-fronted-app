@@ -4,6 +4,7 @@ import 'package:keodam/core/router/routes.dart';
 import 'package:keodam/features/explore/presentation/screens/explore_screen.dart';
 import 'package:keodam/features/feed/presentation/screens/feed_screen.dart';
 import 'package:keodam/features/matching/presentation/screens/matching_screen.dart';
+import 'package:keodam/features/mypage/presentation/screens/community_profile_edit.dart';
 import 'package:keodam/features/mypage/presentation/screens/mentee_level_guide.dart';
 import 'package:keodam/features/mypage/presentation/screens/mypage_screen.dart';
 import 'package:keodam/core/presentation/widgets/bottom_navigation.dart';
@@ -89,6 +90,17 @@ final GoRouter router = GoRouter(
               pageBuilder:
                   (context, state) => CustomTransitionPage(
                     child: SupportDeveloperScreen(),
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) =>
+                            child,
+                    transitionDuration: Duration.zero,
+                  ),
+            ),
+            GoRoute(
+              path: Routes.mypageProfileEdit,
+              pageBuilder:
+                  (context, state) => CustomTransitionPage(
+                    child: CommunityProfileEdit(),
                     transitionsBuilder:
                         (context, animation, secondaryAnimation, child) =>
                             child,

@@ -9,4 +9,5 @@ class Routes {
   static const mypageMentorLevelGuide = 'mentor-level-guide';
   static const mypageMenteeLevelGuide = 'mentee-level-guide';
   static const mypageSupportDeveloper = 'support-developer';
+  static const mypageProfileEdit = 'profile-edit';
 }
