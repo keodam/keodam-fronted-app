@@ -12,7 +12,7 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String backarrowIcon = 'assets/icons/backarrow.svg';
+    const String backarrowIcon = 'assets/icons/arrow_back.svg';
     return AppBar(
       toolbarHeight: toolbarHeight,
       title: Text(
