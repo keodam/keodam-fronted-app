@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
 import 'package:keodam/features/mypage/data/model/mento_level.dart';
 import 'package:keodam/features/mypage/data/model/mento_level_table.dart';
+import 'package:keodam/features/mypage/presentation/widgets/basic_appbar.dart';
 import 'package:keodam/features/mypage/presentation/widgets/section_divider.dart';
 
 class MentoLevelGuide extends ConsumerWidget {
@@ -13,28 +12,11 @@ class MentoLevelGuide extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const String backarrowIcon = 'assets/icons/backarrow.svg';
-
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 70,
-        title: Text(
-          '멘토 등급안내',
-          style: AppTextStyle.extraBold20.copyWith(color: Colors.black),
-        ),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: SvgPicture.asset(backarrowIcon),
-          onPressed: () {
-            context.pop();
-          },
-        ),
-      ),
+      appBar: BasicAppBar(title: '멘토 등급안내'),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SectionDivider(height: 7),
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 16.0,

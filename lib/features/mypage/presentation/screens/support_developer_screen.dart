@@ -1,36 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:go_router/go_router.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
+import 'package:keodam/features/mypage/presentation/widgets/basic_appbar.dart';
 
 class SupportDeveloperScreen extends ConsumerWidget {
   const SupportDeveloperScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const String backarrowIcon = 'assets/icons/backarrow.svg';
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 70,
-        title: Text(
-          '개발자 후원하기',
-          style: AppTextStyle.extraBold20.copyWith(color: Colors.black),
-        ),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: SvgPicture.asset(backarrowIcon),
-          onPressed: () {
-            context.pop();
-          },
-        ),
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(2),
-          child: Divider(height: 1, thickness: 7, color: backgroundColor01),
-        ),
-      ),
+      appBar: BasicAppBar(title: '개발자 후원하기'),
       body: Center(
         child: Column(
           children: [

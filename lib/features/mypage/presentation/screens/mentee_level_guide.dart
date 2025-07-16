@@ -1,11 +1,10 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:go_router/go_router.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
 import 'package:keodam/features/mypage/data/model/mentee_level_table.dart';
+import 'package:keodam/features/mypage/presentation/widgets/basic_appbar.dart';
 import 'package:keodam/features/mypage/presentation/widgets/section_divider.dart';
 
 class MenteeLevelGuide extends ConsumerWidget {
@@ -13,27 +12,8 @@ class MenteeLevelGuide extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const String backarrowIcon = 'assets/icons/backarrow.svg';
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 70,
-        title: Text(
-          '멘티 매너온도 안내',
-          style: AppTextStyle.extraBold20.copyWith(color: Colors.black),
-        ),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: SvgPicture.asset(backarrowIcon),
-          onPressed: () {
-            context.pop();
-          },
-        ),
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(2),
-          child: Divider(height: 1, thickness: 1, color: Colors.grey.shade300),
-        ),
-      ),
+      appBar: BasicAppBar(title: '멘티 매너온도 안내'),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
