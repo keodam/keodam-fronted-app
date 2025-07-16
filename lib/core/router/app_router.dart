@@ -8,6 +8,7 @@ import 'package:keodam/features/mypage/presentation/screens/mentee_level_guide.d
 import 'package:keodam/features/mypage/presentation/screens/mypage_screen.dart';
 import 'package:keodam/core/presentation/widgets/bottom_navigation.dart';
 import 'package:keodam/features/mypage/presentation/screens/mento_level_guide.dart';
+import 'package:keodam/features/mypage/presentation/screens/support_developer_screen.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: Routes.splash,
@@ -77,6 +78,17 @@ final GoRouter router = GoRouter(
               pageBuilder:
                   (context, state) => CustomTransitionPage(
                     child: MenteeLevelGuide(),
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) =>
+                            child,
+                    transitionDuration: Duration.zero,
+                  ),
+            ),
+            GoRoute(
+              path: Routes.mypageSupportDeveloper,
+              pageBuilder:
+                  (context, state) => CustomTransitionPage(
+                    child: SupportDeveloperScreen(),
                     transitionsBuilder:
                         (context, animation, secondaryAnimation, child) =>
                             child,

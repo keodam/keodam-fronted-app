@@ -18,6 +18,7 @@ const textBlue02 = Color(0xff3A75FF);
 const pureWhite = Color(0xffFFFFFF);
 const redColor = Color(0xffFF2B00);
 const backGray = Color(0xffEDEFF1);
+const color01 = Color(0xffE6F1FF);
 
 //mento-progress colors
 const mentoProgressColor00 = Color(0xffE5E9F0);
