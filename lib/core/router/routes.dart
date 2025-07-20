@@ -10,4 +10,5 @@ class Routes {
   static const mypageMenteeLevelGuide = 'mentee-level-guide';
   static const mypageSupportDeveloper = 'support-developer';
   static const mypageProfileEdit = 'profile-edit';
+  static const mypageDeleteAccount = 'delete-account';
 }

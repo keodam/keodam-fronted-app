@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 import 'package:keodam/core/router/routes.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/keodam_footer_icons.dart';
@@ -7,24 +8,23 @@ import 'package:keodam/core/theme/text_styles.dart';
 
 class BottomNavigationScaffold extends StatelessWidget {
   final Widget child;
+  final String location;
 
-  const BottomNavigationScaffold({super.key, required this.child});
-
-  static const Set<String> _bottomNavLocations = {
-    '/feed',
-    '/explore',
-    '/matching',
-    '/mypage',
-  };
+  const BottomNavigationScaffold({
+    super.key,
+    required this.child,
+    required this.location,
+  });
 
   bool _showBottomNav(String location) {
-    return _bottomNavLocations.contains(location);
+    return location == Routes.feed ||
+        location == Routes.explore ||
+        location == Routes.matching ||
+        location == Routes.mypage;
   }
 
   @override
   Widget build(BuildContext context) {
-    final location = GoRouterState.of(context).uri.toString();
-
     return Scaffold(
       backgroundColor: pureWhite,
       body: SafeArea(child: child),
