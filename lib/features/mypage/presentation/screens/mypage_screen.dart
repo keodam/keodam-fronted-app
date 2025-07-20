@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-import 'package:keodam/features/mypage/presentation/widgets/logout_section.dart';
-import 'package:keodam/features/mypage/presentation/widgets/events_section.dart';
+import 'package:keodam/features/mypage/presentation/widgets/section_logout.dart';
+import 'package:keodam/features/mypage/presentation/widgets/section_events.dart';
 
 import 'package:keodam/features/mypage/presentation/widgets/role_toggle_card.dart';
-import 'package:keodam/features/mypage/presentation/widgets/notificiation_section.dart';
-import 'package:keodam/features/mypage/presentation/widgets/profile_edit_section.dart';
-import 'package:keodam/features/mypage/presentation/widgets/profile_state_section.dart';
+import 'package:keodam/features/mypage/presentation/widgets/section_notification.dart';
+import 'package:keodam/features/mypage/presentation/widgets/section_profile_edit.dart';
+import 'package:keodam/features/mypage/presentation/widgets/section_profile_state.dart';
 import 'package:keodam/features/mypage/presentation/widgets/section_divider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:keodam/features/mypage/presentation/widgets/user_support_section.dart';
+import 'package:keodam/features/mypage/presentation/widgets/section_user_support.dart';
 
 class MypageScreen extends ConsumerWidget {
   const MypageScreen({super.key});
