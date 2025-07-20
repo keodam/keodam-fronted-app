@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:keodam/core/theme/colors.dart';
-import 'package:keodam/features/mypage/presentation/widgets/logout_button.dart';
+import 'package:keodam/features/mypage/presentation/widgets/button_logout.dart';
 
 class LogoutSection extends StatelessWidget {
   const LogoutSection({super.key});
