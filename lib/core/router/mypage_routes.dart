@@ -4,6 +4,9 @@ import 'package:keodam/features/mypage/presentation/screens/delete_account_scree
 import 'package:keodam/features/mypage/presentation/screens/mentee_level_guide.dart';
 import 'package:keodam/features/mypage/presentation/screens/mypage_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/mento_level_guide.dart';
+import 'package:keodam/features/mypage/presentation/screens/shop_purchase_history.dart';
+import 'package:keodam/features/mypage/presentation/screens/shop_screen.dart';
+import 'package:keodam/features/mypage/presentation/screens/shop_withdraw_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/support_developer_screen.dart';
 import 'package:keodam/core/router/routes.dart';
 
@@ -36,6 +39,20 @@ final mypageRoutes = GoRoute(
     GoRoute(
       path: Routes.mypageDeleteAccount,
       builder: (context, state) => const DeleteAccountScreen(),
+    ),
+    GoRoute(
+      path: Routes.mypageShopScreen,
+      builder: (context, state) => const ShopScreen(),
+      routes: [
+        GoRoute(
+          path: Routes.mypagePurchaseHistory,
+          builder: (context, state) => const PurchaseHistoryScreen(),
+        ),
+        GoRoute(
+          path: Routes.mypageWithdraw,
+          builder: (context, state) => const WithdrawScreen(),
+        ),
+      ],
     ),
   ],
 );
