@@ -12,6 +12,7 @@ class Routes {
   static const mypageProfileEdit = 'profile-edit';
   static const mypageDeleteAccount = 'delete-account';
   static const mypageShopScreen = 'shop-screen';
+  static const mypagePurchase = 'purchase';
   static const mypagePurchaseHistory = 'purchase-history';
   static const mypageWithdraw = 'withdraw';
 }

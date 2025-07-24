@@ -1,10 +1,12 @@
 import 'package:go_router/go_router.dart';
+import 'package:keodam/features/mypage/data/model/shop_product_data.dart';
 import 'package:keodam/features/mypage/presentation/screens/community_profile_edit.dart';
 import 'package:keodam/features/mypage/presentation/screens/delete_account_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/mentee_level_guide.dart';
 import 'package:keodam/features/mypage/presentation/screens/mypage_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/mento_level_guide.dart';
 import 'package:keodam/features/mypage/presentation/screens/shop_purchase_history.dart';
+import 'package:keodam/features/mypage/presentation/screens/shop_purchase_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/shop_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/shop_withdraw_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/support_developer_screen.dart';
@@ -44,6 +46,13 @@ final mypageRoutes = GoRoute(
       path: Routes.mypageShopScreen,
       builder: (context, state) => const ShopScreen(),
       routes: [
+        GoRoute(
+          path: Routes.mypagePurchase,
+          builder: (context, state) {
+            final item = state.extra as ShopProduct;
+            return ShopPurchaseScreen(item: item);
+          },
+        ),
         GoRoute(
           path: Routes.mypagePurchaseHistory,
           builder: (context, state) => const PurchaseHistoryScreen(),
