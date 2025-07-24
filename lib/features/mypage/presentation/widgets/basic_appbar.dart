@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
 
-class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
+class BasicAppBar extends ConsumerWidget implements PreferredSizeWidget {
   final String title;
   final double toolbarHeight;
+  final VoidCallback? onBack;
 
-  const BasicAppBar({super.key, required this.title, this.toolbarHeight = 70});
+  const BasicAppBar({
+    super.key,
+    required this.title,
+    this.toolbarHeight = 70,
+    this.onBack,
+  });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     const String backarrowIcon = 'assets/icons/arrow_back.svg';
     return AppBar(
       toolbarHeight: toolbarHeight,
@@ -24,6 +31,7 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: IconButton(
         icon: SvgPicture.asset(backarrowIcon),
         onPressed: () {
+          onBack?.call();
           context.pop();
         },
       ),
