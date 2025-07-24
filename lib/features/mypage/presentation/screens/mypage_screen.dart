@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:keodam/features/mypage/presentation/widgets/section_logout.dart';
 import 'package:keodam/features/mypage/presentation/widgets/section_events.dart';
 
-import 'package:keodam/features/mypage/presentation/widgets/role_toggle_card.dart';
+import 'package:keodam/features/mypage/presentation/widgets/role_toggle_tile.dart';
 import 'package:keodam/features/mypage/presentation/widgets/section_notification.dart';
 import 'package:keodam/features/mypage/presentation/widgets/section_profile_edit.dart';
 import 'package:keodam/features/mypage/presentation/widgets/section_profile_state.dart';
@@ -22,7 +22,7 @@ class MypageScreen extends ConsumerWidget {
           child: Column(
             children: [
               const SizedBox(height: 33),
-              RoleToggleCard(),
+              RoleToggleTile(),
               SectionDivider(height: 32),
               ProfileStateSection(),
               SectionDivider(height: 12),

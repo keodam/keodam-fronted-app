@@ -4,7 +4,6 @@ import 'package:keodam/core/router/routes.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
 import 'package:keodam/features/mypage/domain/mypage_menu_title.dart';
-import 'package:keodam/features/mypage/presentation/screens/delete_account_screen.dart';
 import 'package:keodam/features/mypage/presentation/widgets/app_info_tile.dart';
 import 'package:keodam/features/mypage/presentation/widgets/mypage_menu_tile.dart';
 
