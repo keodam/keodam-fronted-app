@@ -10,6 +10,7 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.8
   dio: ^5.8.0+1
+  dotted_line: ^3.2.3
   flutter:
     sdk: flutter
   flutter_hooks: ^0.21.2
@@ -18,8 +19,9 @@ dependencies:
   flutter_switch: ^0.3.2
   freezed: ^3.0.6
   go_router: ^15.1.3
-  hooks_riverpod: ^2.6.1
+  image_picker: ^1.0.0
   percent_indicator: ^4.2.5
+  permission_handler: ^11.0.0
   riverpod_generator: ^2.6.5
 
 dev_dependencies:

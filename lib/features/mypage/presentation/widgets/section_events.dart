@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:keodam/core/router/routes.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
 import 'package:keodam/features/mypage/domain/mypage_menu_title.dart';
@@ -25,7 +27,9 @@ class EventsSection extends StatelessWidget {
           MypageMenuTile(
             title: MypageMenuTitle.supportDeveloper,
             iconAssetPath: '',
-            onTap: () {},
+            onTap: () {
+              context.go('${Routes.mypage}/${Routes.mypageSupportDeveloper}');
+            },
           ),
         ],
       ),
