@@ -15,4 +15,5 @@ class Routes {
   static const mypagePurchase = 'purchase';
   static const mypagePurchaseHistory = 'purchase-history';
   static const mypageWithdraw = 'withdraw';
+  static const mypageBlockUsers = 'block-users';
 }

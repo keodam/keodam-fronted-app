@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:keodam/features/mypage/data/model/shop_product_data.dart';
 import 'package:keodam/features/mypage/presentation/screens/community_profile_edit.dart';
 import 'package:keodam/features/mypage/presentation/screens/delete_account_screen.dart';
+import 'package:keodam/features/mypage/presentation/screens/manage_block_users_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/mentee_level_guide.dart';
 import 'package:keodam/features/mypage/presentation/screens/mypage_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/mento_level_guide.dart';
@@ -62,6 +63,10 @@ final mypageRoutes = GoRoute(
           builder: (context, state) => const WithdrawScreen(),
         ),
       ],
+    ),
+    GoRoute(
+      path: Routes.mypageBlockUsers,
+      builder: (context, state) => const ManageBlockUsersScreen(),
     ),
   ],
 );
