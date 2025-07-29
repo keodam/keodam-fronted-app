@@ -5,6 +5,8 @@ import 'package:keodam/core/theme/text_styles.dart';
 Future<bool?> showTwoButtonDialog(
   BuildContext context, {
   required String title,
+  String? confirmText,
+  String? cancelText,
 }) {
   return showDialog<bool>(
     context: context,
@@ -25,7 +27,7 @@ Future<bool?> showTwoButtonDialog(
                 ),
               ),
               Divider(height: 1.5, color: backgroundColor01),
-              SizedBox(height: 1),
+              const SizedBox(height: 1),
               Row(
                 children: [
                   Expanded(
@@ -33,7 +35,10 @@ Future<bool?> showTwoButtonDialog(
                       height: 63,
                       child: TextButton(
                         onPressed: () => Navigator.of(context).pop(false),
-                        child: const Text('아니요', style: AppTextStyle.bold18),
+                        child: Text(
+                          cancelText ?? '아니요',
+                          style: AppTextStyle.bold18,
+                        ),
                       ),
                     ),
                   ),
@@ -43,7 +48,10 @@ Future<bool?> showTwoButtonDialog(
                       height: 63,
                       child: TextButton(
                         onPressed: () => Navigator.of(context).pop(true),
-                        child: const Text('예', style: AppTextStyle.bold18),
+                        child: Text(
+                          confirmText ?? '예',
+                          style: AppTextStyle.bold18,
+                        ),
                       ),
                     ),
                   ),
