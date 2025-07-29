@@ -13,6 +13,6 @@ abstract class PurchaseList with _$PurchaseList {
     required int itemPrice,
     required DateTime date,
     required RefundStatus refundStatus,
-    required String paymentMethod,
+    String? paymentMethod,
   }) = _PurchaseList;
 }

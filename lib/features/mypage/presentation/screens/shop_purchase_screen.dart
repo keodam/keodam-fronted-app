@@ -7,23 +7,23 @@ import 'package:keodam/features/mypage/presentation/widgets/basic_appbar.dart';
 import 'package:intl/intl.dart';
 
 class ShopPurchaseScreen extends ConsumerWidget {
-  final ShopProduct item;
+  final ShopProduct shopProductItem;
 
-  const ShopPurchaseScreen({super.key, required this.item});
+  const ShopPurchaseScreen({super.key, required this.shopProductItem});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: BasicAppBar(title: '결제'),
-      body: Center(child: PurchaseSection(item: item)),
+      body: Center(child: PurchaseSection(shopProductItem: shopProductItem)),
     );
   }
 }
 
 class PurchaseSection extends ConsumerWidget {
-  final ShopProduct item;
+  final ShopProduct shopProductItem;
 
-  const PurchaseSection({super.key, required this.item});
+  const PurchaseSection({super.key, required this.shopProductItem});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -37,15 +37,15 @@ class PurchaseSection extends ConsumerWidget {
           const SizedBox(height: 8),
           Row(
             children: [
-              Image.asset(item.itemType.imageAssetName, width: 63),
+              Image.asset(shopProductItem.itemType.imageAssetName, width: 63),
               const SizedBox(width: 10),
               Text(
-                item.itemName,
+                shopProductItem.itemName,
                 style: AppTextStyle.bold18.copyWith(color: textBlack),
               ),
               const Spacer(),
               Text(
-                formatter.format(item.itemPrice),
+                formatter.format(shopProductItem.itemPrice),
                 style: AppTextStyle.bold24.copyWith(color: textBlack),
               ),
               SizedBox(width: 10),

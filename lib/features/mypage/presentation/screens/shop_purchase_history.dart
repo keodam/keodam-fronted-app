@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:keodam/core/router/routes.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
 import 'package:keodam/features/mypage/data/model/refund_item_type.dart';
 import 'package:keodam/features/mypage/data/model/refund_status.dart';
-import 'package:keodam/features/mypage/presentation/screens/shop_refund_detail.dart';
 import 'package:keodam/features/mypage/presentation/widgets/basic_appbar.dart';
 import 'package:keodam/features/mypage/presentation/widgets/section_divider.dart';
 import 'package:keodam/features/mypage/provider/purchase_history_provider.dart';
@@ -42,30 +43,29 @@ class PurchaseHistoryItem extends ConsumerWidget {
     );
     final purchaseList = ref.watch(purchaseHistoryProvider);
 
-    final sortedList = [...purchaseList]
+    final sortedPurchaseList = [...purchaseList]
       ..sort((a, b) => b.date.compareTo(a.date));
 
     return SizedBox(
       child: ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: sortedList.length,
+        itemCount: sortedPurchaseList.length,
         itemBuilder: (context, index) {
-          final item = sortedList[index];
+          final item = sortedPurchaseList[index];
 
           return GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap:
                 item.refundStatus == RefundStatus.refundable
                     ? () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => RefundDetail(item: item),
-                        ),
+                      context.go(
+                        '${Routes.mypage}/${Routes.mypageShopScreen}/${Routes.mypagePurchaseHistory}/${Routes.mypageRefundDetail}',
+                        extra: item,
                       );
                     }
                     : null,
+
             child: Column(
               children: [
                 Padding(
