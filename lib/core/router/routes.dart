@@ -17,4 +17,6 @@ class Routes {
   static const mypageWithdraw = 'withdraw';
   static const mypageBlockUsers = 'block-users';
   static const mypageRefundDetail = 'refund-detail';
+  static const mypageContactSupport = 'contact-support';
+  static const mypageContactSupportFaq = 'contact-support-faq';
 }

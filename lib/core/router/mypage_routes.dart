@@ -2,6 +2,8 @@ import 'package:go_router/go_router.dart';
 import 'package:keodam/features/mypage/data/model/purchase_data.dart';
 import 'package:keodam/features/mypage/data/model/shop_product_data.dart';
 import 'package:keodam/features/mypage/presentation/screens/community_profile_edit.dart';
+import 'package:keodam/features/mypage/presentation/screens/contact_support_faq_screen.dart';
+import 'package:keodam/features/mypage/presentation/screens/contact_support_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/delete_account_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/manage_block_users_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/mentee_level_guide.dart';
@@ -78,6 +80,16 @@ final mypageRoutes = GoRoute(
     GoRoute(
       path: Routes.mypageBlockUsers,
       builder: (context, state) => const ManageBlockUsersScreen(),
+    ),
+    GoRoute(
+      path: Routes.mypageContactSupport,
+      builder: (context, state) => const ContactSupportScreen(),
+      routes: [
+        GoRoute(
+          path: Routes.mypageContactSupportFaq,
+          builder: (context, state) => const ContactSupportFaqScreen(),
+        ),
+      ],
     ),
   ],
 );

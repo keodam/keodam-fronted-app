@@ -23,7 +23,9 @@ class UserSupportSection extends StatelessWidget {
             title: MypageMenuTitle.contactSupport,
             showTrailing: false,
             iconAssetPath: '',
-            onTap: () {},
+            onTap: () {
+              context.go('${Routes.mypage}/${Routes.mypageContactSupport}');
+            },
           ),
           Divider(height: 2, color: backgroundColor01),
           MypageMenuTile(
