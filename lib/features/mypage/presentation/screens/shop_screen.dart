@@ -6,7 +6,6 @@ import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
 import 'package:keodam/features/mypage/data/model/shop_menu_table.dart';
 import 'package:keodam/features/mypage/data/model/shop_promotion_menu_table.dart';
-import 'package:keodam/features/mypage/presentation/screens/shop_purchase_screen.dart';
 import 'package:keodam/features/mypage/presentation/widgets/basic_appbar.dart';
 import 'package:keodam/features/mypage/presentation/widgets/shop_product_tile.dart';
 import 'package:keodam/features/mypage/provider/user_provider.dart';
