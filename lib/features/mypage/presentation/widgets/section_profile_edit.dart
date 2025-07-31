@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:keodam/core/router/routes.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
 import 'package:keodam/features/mypage/domain/mypage_menu_title.dart';
@@ -36,7 +38,9 @@ class ProfileEditSection extends StatelessWidget {
             title: MypageMenuTitle.certifyStatus,
             iconAssetPath: 'assets/images/mypage/icon_certified_badge.png',
             onTap: () {
-              Navigator.pushNamed(context, '/edit');
+              context.go(
+                '${Routes.mypage}/${Routes.mypageCertificationStatus}',
+              );
             },
           ),
         ],
