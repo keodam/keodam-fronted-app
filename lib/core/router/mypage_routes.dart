@@ -1,6 +1,9 @@
 import 'package:go_router/go_router.dart';
 import 'package:keodam/features/mypage/data/model/purchase_data.dart';
 import 'package:keodam/features/mypage/data/model/shop_product_data.dart';
+import 'package:keodam/features/mypage/presentation/screens/certification_email_screen.dart';
+import 'package:keodam/features/mypage/presentation/screens/certification_status_screen.dart';
+import 'package:keodam/features/mypage/presentation/screens/certification_upload_file_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/community_profile_edit.dart';
 import 'package:keodam/features/mypage/presentation/screens/contact_support_faq_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/contact_support_screen.dart';
@@ -43,6 +46,7 @@ final mypageRoutes = GoRoute(
       path: Routes.mypageProfileEdit,
       builder: (context, state) => const CommunityProfileEdit(),
     ),
+
     GoRoute(
       path: Routes.mypageDeleteAccount,
       builder: (context, state) => const DeleteAccountScreen(),
@@ -74,6 +78,20 @@ final mypageRoutes = GoRoute(
         GoRoute(
           path: Routes.mypageWithdraw,
           builder: (context, state) => const WithdrawScreen(),
+        ),
+      ],
+    ),
+    GoRoute(
+      path: Routes.mypageCertificationStatus,
+      builder: (context, state) => const CertificationStatusScreen(),
+      routes: [
+        GoRoute(
+          path: Routes.mypageCertificationEmail,
+          builder: (context, state) => const CertificationEmailScreen(),
+        ),
+        GoRoute(
+          path: Routes.mypageCertificationFile,
+          builder: (context, state) => const CertificationUploadFileScreen(),
         ),
       ],
     ),

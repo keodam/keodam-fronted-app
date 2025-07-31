@@ -19,4 +19,7 @@ class Routes {
   static const mypageRefundDetail = 'refund-detail';
   static const mypageContactSupport = 'contact-support';
   static const mypageContactSupportFaq = 'contact-support-faq';
+  static const mypageCertificationStatus = 'certification-status';
+  static const mypageCertificationEmail = 'certification-email';
+  static const mypageCertificationFile = 'certification-file';
 }
