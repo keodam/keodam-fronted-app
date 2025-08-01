@@ -6,8 +6,6 @@ import 'package:keodam/core/router/routes.dart';
 import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
 import 'package:keodam/features/mypage/data/model/certification_type.dart';
-import 'package:keodam/features/mypage/presentation/screens/certification_email_screen.dart';
-import 'package:keodam/features/mypage/presentation/screens/certification_upload_file_screen.dart';
 import 'package:keodam/features/mypage/presentation/widgets/basic_appbar.dart';
 import 'package:keodam/features/mypage/presentation/widgets/section_divider.dart';
 import 'package:keodam/features/mypage/provider/certification_type_provider.dart';
