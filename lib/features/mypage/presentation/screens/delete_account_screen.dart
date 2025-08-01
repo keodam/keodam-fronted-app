@@ -9,8 +9,6 @@ import 'package:keodam/features/mypage/presentation/widgets/button_lg_white.dart
 class DeleteAccountScreen extends ConsumerWidget {
   const DeleteAccountScreen({super.key});
 
-  get backgroundColor02 => null;
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -21,7 +19,7 @@ class DeleteAccountScreen extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '서비스 품질 개선을 위해,  탈퇴 사유를 작성해주세요.',
+              '서비스 품질 개선을 위해, 탈퇴 사유를 작성해주세요.',
               style: AppTextStyle.semiBold16.copyWith(color: textBlack),
             ),
             SizedBox(height: 25),

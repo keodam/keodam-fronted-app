@@ -11,4 +11,10 @@ class Routes {
   static const mypageSupportDeveloper = 'support-developer';
   static const mypageProfileEdit = 'profile-edit';
   static const mypageDeleteAccount = 'delete-account';
+  static const mypageShopScreen = 'shop-screen';
+  static const mypagePurchase = 'purchase';
+  static const mypagePurchaseHistory = 'purchase-history';
+  static const mypageWithdraw = 'withdraw';
+  static const mypageBlockUsers = 'block-users';
+  static const mypageRefundDetail = 'refund-detail';
 }
