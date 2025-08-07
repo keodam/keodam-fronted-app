@@ -20,8 +20,6 @@ class MypageMenuTile extends ConsumerWidget {
     this.showTrailing = true,
   });
 
-  get backgroundColor02 => null;
-
   void _handleTap(BuildContext context, WidgetRef ref) {
     if (title == MypageMenuTitle.roulette) {
       if (ref.read(userRoleProvider) == Role.mentee) {
@@ -29,13 +27,12 @@ class MypageMenuTile extends ConsumerWidget {
           context: context,
           builder: (BuildContext context) {
             return const SingleButtonDialog(
-              title: '현재 설정값이 멘토인 경우\n룰렛을 돌릴 수 없어요!',
+              title: '현재 설정값이 멘티인 경우\n룰렛을 돌릴 수 없어요!',
               message: '멘토로 전환 후 사용해보아요.',
             );
           },
         );
       } else {
-        //TODO: 멘토일 때, 룰렛 페이지로 이동
         onTap?.call();
       }
     } else {
