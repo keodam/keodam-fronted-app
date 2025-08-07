@@ -4,6 +4,7 @@ import 'package:keodam/features/mypage/data/model/shop_product_data.dart';
 import 'package:keodam/features/mypage/presentation/screens/certification_email_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/certification_status_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/certification_upload_file_screen.dart';
+import 'package:keodam/features/mypage/presentation/screens/coffee_exchange_request_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/community_profile_edit.dart';
 import 'package:keodam/features/mypage/presentation/screens/contact_support_faq_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/contact_support_screen.dart';
@@ -12,6 +13,7 @@ import 'package:keodam/features/mypage/presentation/screens/manage_block_users_s
 import 'package:keodam/features/mypage/presentation/screens/mentee_level_guide.dart';
 import 'package:keodam/features/mypage/presentation/screens/mypage_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/mento_level_guide.dart';
+import 'package:keodam/features/mypage/presentation/screens/roulette_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/shop_purchase_history.dart';
 import 'package:keodam/features/mypage/presentation/screens/shop_purchase_screen.dart';
 import 'package:keodam/features/mypage/presentation/screens/shop_refund_detail.dart';
@@ -46,7 +48,16 @@ final mypageRoutes = GoRoute(
       path: Routes.mypageProfileEdit,
       builder: (context, state) => const CommunityProfileEdit(),
     ),
-
+    GoRoute(
+      path: Routes.mypageRoulette,
+      builder: (context, state) => const RouletteScreen(),
+      routes: [
+        GoRoute(
+          path: Routes.mypageCoffeeExchangeRequest,
+          builder: (context, state) => const CoffeeExchangeRequestScreen(),
+        ),
+      ],
+    ),
     GoRoute(
       path: Routes.mypageDeleteAccount,
       builder: (context, state) => const DeleteAccountScreen(),
@@ -78,6 +89,16 @@ final mypageRoutes = GoRoute(
         GoRoute(
           path: Routes.mypageWithdraw,
           builder: (context, state) => const WithdrawScreen(),
+        ),
+        GoRoute(
+          path: Routes.mypageRoulette,
+          builder: (context, state) => const RouletteScreen(),
+          routes: [
+            GoRoute(
+              path: Routes.mypageCoffeeExchangeRequest,
+              builder: (context, state) => const CoffeeExchangeRequestScreen(),
+            ),
+          ],
         ),
       ],
     ),

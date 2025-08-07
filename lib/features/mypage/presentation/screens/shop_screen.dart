@@ -6,8 +6,10 @@ import 'package:keodam/core/theme/colors.dart';
 import 'package:keodam/core/theme/text_styles.dart';
 import 'package:keodam/features/mypage/data/model/shop_menu_table.dart';
 import 'package:keodam/features/mypage/data/model/shop_promotion_menu_table.dart';
+import 'package:keodam/features/mypage/domain/util/show_single_button_dialog.dart';
 import 'package:keodam/features/mypage/presentation/widgets/basic_appbar.dart';
 import 'package:keodam/features/mypage/presentation/widgets/shop_product_tile.dart';
+import 'package:keodam/features/mypage/provider/role_provider.dart';
 import 'package:keodam/features/mypage/provider/user_provider.dart';
 
 class ShopScreen extends ConsumerWidget {
@@ -56,6 +58,9 @@ class UserBalanceSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final role = ref.watch(userRoleProvider);
+    final isMentee = role == Role.mentee;
+
     final user = ref.watch(userProvider);
     return Column(
       children: [
@@ -88,7 +93,7 @@ class UserBalanceSection extends ConsumerWidget {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Image.asset(
-                    'assets/images/mypage/logo_rulet_ticket.png',
+                    'assets/images/mypage/logo_roulette_ticket.png',
                     width: 60.19,
                   ),
                 ),
@@ -103,12 +108,30 @@ class UserBalanceSection extends ConsumerWidget {
                   style: AppTextStyle.regular12.copyWith(color: textGray),
                 ),
                 const SizedBox(height: 6),
-                //TODO 룰렛 바로가기 버튼 추가
-                Text(
-                  '룰렛 바로가기',
-                  style: AppTextStyle.regular12.copyWith(
-                    color: textGray,
-                    decoration: TextDecoration.underline,
+                GestureDetector(
+                  onTap: () {
+                    if (isMentee) {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return SingleButtonDialog(
+                            title: '현재 설정값이 멘티인 경우 \n룰렛을 돌릴 수 없어요!',
+                            message: '멘토로 전환 후 사용해보아요.',
+                          );
+                        },
+                      );
+                    } else {
+                      context.go(
+                        '${Routes.mypage}/${Routes.mypageShopScreen}/${Routes.mypageRoulette}',
+                      );
+                    }
+                  },
+                  child: Text(
+                    '룰렛 바로가기',
+                    style: AppTextStyle.regular12.copyWith(
+                      color: textGray,
+                      decoration: TextDecoration.underline,
+                    ),
                   ),
                 ),
               ],
