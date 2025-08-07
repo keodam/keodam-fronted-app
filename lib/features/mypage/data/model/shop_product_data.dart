@@ -18,7 +18,7 @@ extension ShopProductypeExtension on ShopProductype {
   String get imageAssetName {
     switch (this) {
       case ShopProductype.ticket:
-        return 'assets/images/mypage/logo_rulet_ticket.png';
+        return 'assets/images/mypage/logo_roulette_ticket.png';
       case ShopProductype.beans500:
         return 'assets/images/mypage/bean500.png';
       case ShopProductype.beans1000:
