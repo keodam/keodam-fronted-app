@@ -23,6 +23,7 @@ class MenteeDegreeCard extends ConsumerWidget {
     final double percent = (currentIndex + 1) / (maxIndex + 1);
 
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         context.go('${Routes.mypage}/${Routes.mypageMenteeLevelGuide}');
       },

@@ -20,6 +20,7 @@ class MentoLevelCard extends ConsumerWidget {
         (currentExp - levelInfo.minExp) / (levelInfo.maxExp - levelInfo.minExp);
 
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         context.go('${Routes.mypage}/${Routes.mypageMentorLevelGuide}');
       },
