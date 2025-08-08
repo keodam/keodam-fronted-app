@@ -8,6 +8,7 @@ class CustomTextField extends ConsumerWidget {
   final StateProvider<String> targetProvider;
   final TextInputType keyboardType;
   final TextEditingController? controller;
+  final double? height;
 
   const CustomTextField({
     super.key,
@@ -15,11 +16,12 @@ class CustomTextField extends ConsumerWidget {
     required this.targetProvider,
     this.keyboardType = TextInputType.text,
     this.controller,
+    this.height,
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return TextField(
+    final textField = TextField(
       onChanged: (value) {
         ref.read(targetProvider.notifier).state = value;
       },
@@ -27,10 +29,13 @@ class CustomTextField extends ConsumerWidget {
       controller: controller,
       decoration: InputDecoration(
         isDense: true,
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 10,
-          horizontal: 12,
-        ),
+        contentPadding:
+            height == null
+                ? const EdgeInsets.symmetric(vertical: 10, horizontal: 12)
+                : EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: (height! - 20) / 2,
+                ),
         hintText: hintText,
         hintStyle: AppTextStyle.regular14.copyWith(color: textGray),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
@@ -44,5 +49,9 @@ class CustomTextField extends ConsumerWidget {
         ),
       ),
     );
+
+    return height == null
+        ? textField
+        : SizedBox(height: height, child: textField);
   }
 }
