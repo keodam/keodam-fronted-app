@@ -22,4 +22,6 @@ class Routes {
   static const mypageCertificationStatus = 'certification-status';
   static const mypageCertificationEmail = 'certification-email';
   static const mypageCertificationFile = 'certification-file';
+  static const mypageRoulette = 'roulette';
+  static const mypageCoffeeExchangeRequest = 'coffee-exchange-request';
 }

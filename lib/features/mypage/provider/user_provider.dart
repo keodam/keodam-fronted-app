@@ -6,6 +6,7 @@ final userProvider = StateProvider<UserState>((ref) {
   return UserState(
     coffeeCoupon: 1500,
     rouletteCoupon: 2,
+    coffeeExchangeCoupon: 3,
     matches: 12,
     receivedLikes: 21,
     nickname: 'nickname',

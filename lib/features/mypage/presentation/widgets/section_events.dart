@@ -21,7 +21,9 @@ class EventsSection extends StatelessWidget {
           MypageMenuTile(
             title: MypageMenuTitle.roulette,
             iconAssetPath: '',
-            onTap: () {},
+            onTap: () {
+              context.go('${Routes.mypage}/${Routes.mypageRoulette}');
+            },
           ),
           Divider(height: 1, color: backgroundColor01),
           MypageMenuTile(

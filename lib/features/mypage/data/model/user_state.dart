@@ -8,6 +8,7 @@ abstract class UserState with _$UserState {
   const factory UserState({
     required int coffeeCoupon,
     required int rouletteCoupon,
+    required int coffeeExchangeCoupon,
     required int matches,
     required int receivedLikes,
     required String nickname,
