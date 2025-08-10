@@ -32,47 +32,70 @@ class RefundDetail extends ConsumerWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            RefundDetailItem(item: item),
-            SizedBox(height: 40),
-            BankAccountNumberInput(),
-            SizedBox(height: 40),
-            BankOwnerInput(),
-            SizedBox(height: 40),
-            BankNameInput(),
-            SizedBox(height: 40),
-            NoticeScript(),
-            SizedBox(height: 40),
-            BasicLgButton(
-              text: '확인',
-              onPressed: () {
-                //TODO: post 환불 요청 로직
-                final purchaseList = ref.read(purchaseHistoryProvider);
-                final index = purchaseList.indexOf(item);
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              RefundDetailItem(item: item),
+              SizedBox(height: 40),
+              BankAccountNumberInput(),
+              SizedBox(height: 40),
+              BankOwnerInput(),
+              SizedBox(height: 40),
+              BankNameInput(),
+              SizedBox(height: 40),
+              NoticeScript(),
+              SizedBox(height: 40),
+              BasicLgButton(
+                text: '확인',
+                onPressed: () {
+                  final bankAccountNumber = ref.read(
+                    isValidBankAccountNumberProvider,
+                  );
+                  final bankOwner = ref.read(isValidBankOwnerProvider);
+                  final bankName = ref.read(isValidBankNameProvider);
 
-                if (index != -1) {
-                  ref
-                      .read(purchaseHistoryProvider.notifier)
-                      .updateRefundStatus(index, RefundStatus.pending);
-                }
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return SingleButtonDialog(
-                      title:
-                          '정상적으로 환불 요청 되었습니다.\n 환불은 영업일 기준 3일 ~ 7일 \n소요될 수 있습니다.',
-                      onPressed: () {
-                        context.pop();
-                        context.pop();
+                  //TODO: post 환불 요청 로직
+                  final purchaseList = ref.read(purchaseHistoryProvider);
+                  final index = purchaseList.indexOf(item);
+
+                  if (!bankAccountNumber || !bankOwner || !bankName) {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return SingleButtonDialog(
+                          title: '모든 항목을 정확히 입력해주세요.',
+                          onPressed: () {
+                            context.pop();
+                          },
+                        );
                       },
                     );
-                  },
-                );
-              },
-            ),
-          ],
+                    return;
+                  } else {
+                    if (index != -1) {
+                      ref
+                          .read(purchaseHistoryProvider.notifier)
+                          .updateRefundStatus(index, RefundStatus.pending);
+                    }
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return SingleButtonDialog(
+                          title:
+                              '정상적으로 환불 요청 되었습니다.\n 환불은 영업일 기준 3일 ~ 7일 \n소요될 수 있습니다.',
+                          onPressed: () {
+                            context.pop();
+                            context.pop();
+                          },
+                        );
+                      },
+                    );
+                  }
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

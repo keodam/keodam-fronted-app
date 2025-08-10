@@ -53,7 +53,7 @@ class ShopHeader extends ConsumerWidget {
                 Row(
                   children: [
                     Image.asset(
-                      'assets/images/mypage/logo_rulet_ticket.png',
+                      'assets/images/mypage/logo_roulette_ticket.png',
                       width: 24,
                     ),
                     const SizedBox(width: 5),
