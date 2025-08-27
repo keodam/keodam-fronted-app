@@ -44,6 +44,40 @@
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/><key>NSAppTransportSecurity</key>
+	<dict>
+	<key>NSAllowsArbitraryLoads</key>
 	<true/>
+	</dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kakao7d17daf6f8bcac8911ffbd1e11b8fa4e</string>
+			</array>
+		</dict>
+        <dict>
+                    <key>CFBundleTypeRole</key>
+                    <string>Editor</string>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>com.googleusercontent.apps.279905180897-m7jrrlp8rorqd6dvv5sl1qolp58eji2p</string>
+                    </array>
+                </dict>
+	</array>
+    <key>GIDClientID</key>
+    <string>279905180897-m7jrrlp8rorqd6dvv5sl1qolp58eji2p.apps.googleusercontent.com</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>kakaokompassauth</string>
+		<string>kakaolink</string>
+		<string>kakaotalk</string>
+		<string>kakaostory</string>
+		<string>storykompassauth</string>
+		<string>kakaomap</string>
+		<string>naversearchapp</string>
+		<string>naversearchthirdlogin</string>
+	</array>
 </dict>
 </plist>
