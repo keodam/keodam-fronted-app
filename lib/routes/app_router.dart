@@ -14,11 +14,10 @@ enum AppRoutes {
   phoneVerification,
   signUpProfile,
 }
-
 final GoRouter appRouter = GoRouter(
   // initialLocation: '/sign-up-profile',
-  // initialLocation: '/sign-in',
-  initialLocation: '/home',
+  initialLocation: '/sign-in',
+  // initialLocation: '/home',
   routes: [
     GoRoute(
       path: '/splash',
