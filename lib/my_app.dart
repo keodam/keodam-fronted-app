@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:keodam_app/routes/app_router.dart';
+import 'package:keodam_app/styles/app_theme.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -7,7 +8,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      title: 'Keodam',
       routerConfig: appRouter,
+      theme: AppTheme.lightTheme,
+      debugShowCheckedModeBanner: false,
+      // 기본 언어 설정 (한국어)
     );
   }
 }
