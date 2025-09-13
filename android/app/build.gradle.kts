@@ -1,3 +1,6 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -28,6 +31,19 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        // .env 파일에서 환경 변수 읽기
+        val envFile = rootProject.file("../.env")
+        val envProperties = Properties()
+        
+        if (envFile.exists()) {
+            envProperties.load(FileInputStream(envFile))
+        }
+        
+        val kakaoKey = envProperties.getProperty("KAKAO_NATIVE_APP_KEY") ?: "default_key"
+        
+        // manifestPlaceholders 설정
+        manifestPlaceholders["kakaoAppKey"] = kakaoKey
     }
 
     buildTypes {

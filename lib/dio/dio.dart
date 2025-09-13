@@ -15,26 +15,21 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:keodam_app/dio/dio_interceptor.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 
 part 'dio.g.dart';
 @Riverpod(keepAlive: true)
 Dio dio(Ref ref) {
-  // 플랫폼별 baseUrl 설정
+  // .env 파일에서 baseUrl 읽기
   String getBaseUrl() {
-    if (Platform.isAndroid) {
-      // 안드로이드 에뮬레이터의 경우 10.0.2.2를 사용
-      return 'http://15.164.80.53/';
-    } else {
-      // iOS 시뮬레이터나 다른 플랫폼의 경우 localhost 사용
-      return 'http://15.164.80.53/';
-    }
+    return dotenv.env['API_BASE_URL'] ?? 'http://15.164.80.53/';
   }
 
   final dio = Dio(
     BaseOptions(
-      // baseUrl: 'http://15.164.80.53/',
       baseUrl: getBaseUrl(),
       connectTimeout: const Duration(seconds: 30),
       receiveTimeout: const Duration(seconds: 30),
