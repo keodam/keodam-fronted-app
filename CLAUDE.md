@@ -68,10 +68,9 @@
 * repositories - 기능에서 사용하는 Repository를 관리합니다. 
   * Domain Layer의 Service에서 호출되며, 외부 API 통신, 로컬 DB 접근 등의 작업을 수행합니다.
   * DTO를 Entity로 변환하는 역할은 Service에 위임합니다.
-  * (api)API는 graphql을 사용하여 graphql_codegen을 통해 자동 생성된 코드를 활용합니다.
+  * (api)API는 dio 사용하며 [dio](lib/dio/dio.dart) 를 사용합니다.
   * 응답 및 예외 처리
     * dartz.dart를 사용하여 Either 타입으로 성공과 실패를 명확히 구분합니다.
     * [실패](lib/core/error/failures.dart)에서 정의한 Failure 클래스를 사용합니다.
     * [에러](lib/core/error/exceptions.dart)에서 정의한 Exception 클래스를 사용합니다.
-* (api)
 
